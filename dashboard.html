@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Shortcut Kerja</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="dashboard-header">
+        <h1><i class="fas fa-th-large"></i> Dashboard Shortcut Pribadi</h1>
+        <div class="header-actions">
+            <button class="btn btn-outline" id="resetBtn" title="Reset semua shortcut ke bawaan">
+                <i class="fas fa-undo-alt"></i> Reset
+            </button>
+            <button class="btn btn-primary" id="addBtn">
+                <i class="fas fa-plus-circle"></i> Tambah
+            </button>
+        </div>
+    </header>
+
+    <div class="shortcut-grid" id="shortcutGrid"></div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-box">
+            <h2><i class="fas fa-pen-fancy"></i> <span id="modalTitle">Tambahkan Shortcut</span></h2>
+            <label for="inputName">Nama (label)</label>
+            <input type="text" id="inputName" placeholder="Misal: Google" />
+
+            <label for="inputUrl">URL Website</label>
+            <input type="text" id="inputUrl" placeholder="https://google.com" />
+
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="modalCancel">Batal</button>
+                <button class="btn btn-primary" id="modalSave">Simpan</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

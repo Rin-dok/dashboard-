@@ -1,0 +1,465 @@
+/* ============================================================
+   RESET & GLOBAL - DEEP DARK THEME
+   ============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+    background: #0a0e17;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    color: #e8edf5;
+}
+
+/* ============================================================
+   SCROLLBAR KUSTOM
+   ============================================================ */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0e17;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1c2a44;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2a3d66;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding: 0 8px;
+}
+
+.dashboard-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #e8edf5;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dashboard-header h1 i {
+    color: #4f8cff;
+    text-shadow: 0 0 20px rgba(79, 140, 255, 0.3);
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* ============================================================
+   BUTTONS - DEEP DARK
+   ============================================================ */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.25s ease;
+    background: #141b2b;
+    color: #a8b8d0;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+.btn-primary {
+    background: #4f8cff;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(79, 140, 255, 0.25);
+}
+
+.btn-primary:hover {
+    background: #3a7ae8;
+    box-shadow: 0 6px 25px rgba(79, 140, 255, 0.35);
+}
+
+.btn-danger {
+    background: #ff4757;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #e8354a;
+    box-shadow: 0 6px 25px rgba(255, 71, 87, 0.35);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1.5px solid #1c2a44;
+    color: #a8b8d0;
+}
+
+.btn-outline:hover {
+    background: #141b2b;
+    border-color: #4f8cff;
+    color: #e8edf5;
+}
+
+.btn-secondary {
+    background: #1c2a44;
+    color: #a8b8d0;
+}
+
+.btn-secondary:hover {
+    background: #2a3d66;
+    color: #e8edf5;
+}
+
+/* ============================================================
+   GRID SHORTCUT
+   ============================================================ */
+.shortcut-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+    flex: 1;
+    align-content: start;
+}
+
+.shortcut-card {
+    background: #141b2b;
+    border-radius: 16px;
+    padding: 24px 12px 18px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #1c2a44;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    user-select: none;
+}
+
+.shortcut-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    border-color: #4f8cff;
+    background: #1a253a;
+    box-shadow: 0 8px 30px rgba(79, 140, 255, 0.1);
+}
+
+.shortcut-card:active {
+    transform: scale(0.95);
+}
+
+.shortcut-icon {
+    width: 64px;
+    height: 64px;
+    background: #0a0e17;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #a8b8d0;
+    transition: all 0.3s ease;
+    border: 1px solid #1c2a44;
+}
+
+.shortcut-card:hover .shortcut-icon {
+    background: #0a0e17;
+    border-color: #4f8cff;
+    color: #4f8cff;
+    box-shadow: 0 0 30px rgba(79, 140, 255, 0.15);
+}
+
+.shortcut-name {
+    font-weight: 500;
+    font-size: 15px;
+    color: #e8edf5;
+    word-break: break-word;
+}
+
+.shortcut-url {
+    font-size: 12px;
+    color: #6a7f9e;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Tombol hapus (muncul saat hover) */
+.shortcut-card .delete-btn {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #4a5f7a;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.25s ease;
+    padding: 4px 6px;
+    border-radius: 6px;
+}
+
+.shortcut-card:hover .delete-btn {
+    opacity: 1;
+}
+
+.shortcut-card .delete-btn:hover {
+    color: #ff4757;
+    background: rgba(255, 71, 87, 0.15);
+}
+
+/* ============================================================
+   TAMBAH SHORTCUT (kartu kosong)
+   ============================================================ */
+.add-card {
+    background: transparent;
+    border: 2px dashed #1c2a44;
+    box-shadow: none;
+    justify-content: center;
+    color: #6a7f9e;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.add-card:hover {
+    border-color: #4f8cff;
+    background: rgba(79, 140, 255, 0.05);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(79, 140, 255, 0.08);
+}
+
+.add-card .shortcut-icon {
+    background: transparent;
+    border: 2px dashed #1c2a44;
+    color: #4a5f7a;
+    font-size: 28px;
+}
+
+.add-card:hover .shortcut-icon {
+    border-color: #4f8cff;
+    color: #4f8cff;
+    background: transparent;
+    box-shadow: 0 0 30px rgba(79, 140, 255, 0.1);
+}
+
+.add-card .shortcut-name {
+    color: #6a7f9e;
+}
+
+.add-card:hover .shortcut-name {
+    color: #a8b8d0;
+}
+
+/* ============================================================
+   MODAL FORM - DEEP DARK
+   ============================================================ */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 14, 23, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.25s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-box {
+    background: #141b2b;
+    border-radius: 24px;
+    padding: 32px 36px 28px;
+    max-width: 440px;
+    width: 92%;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    border: 1px solid #1c2a44;
+    animation: slideUp 0.3s ease;
+}
+
+.modal-box h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #e8edf5;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-box h2 i {
+    color: #4f8cff;
+}
+
+.modal-box label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #a8b8d0;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.modal-box input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #1c2a44;
+    border-radius: 12px;
+    font-size: 15px;
+    margin-bottom: 16px;
+    outline: none;
+    transition: all 0.25s ease;
+    background: #0a0e17;
+    color: #e8edf5;
+}
+
+.modal-box input::placeholder {
+    color: #4a5f7a;
+}
+
+.modal-box input:focus {
+    border-color: #4f8cff;
+    background: #0d1220;
+    box-shadow: 0 0 0 3px rgba(79, 140, 255, 0.15);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 6px;
+}
+
+.modal-actions .btn {
+    padding: 10px 24px;
+    border-radius: 12px;
+}
+
+/* ============================================================
+   EMPTY STATE (jika tidak ada shortcut)
+   ============================================================ */
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: #4a5f7a;
+}
+
+.empty-state i {
+    font-size: 56px;
+    margin-bottom: 16px;
+    display: block;
+    color: #1c2a44;
+}
+
+.empty-state p {
+    font-size: 18px;
+}
+
+/* ============================================================
+   ANIMASI
+   ============================================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 600px) {
+    .dashboard-header h1 {
+        font-size: 22px;
+    }
+    
+    .shortcut-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 14px;
+    }
+    
+    .shortcut-card {
+        padding: 18px 8px 14px;
+    }
+    
+    .shortcut-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+    }
+    
+    .modal-box {
+        padding: 24px 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    body {
+        padding: 12px;
+    }
+    
+    .dashboard-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .header-actions {
+        justify-content: stretch;
+    }
+    
+    .header-actions .btn {
+        flex: 1;
+        justify-content: center;
+    }
+}
